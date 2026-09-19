@@ -86,7 +86,7 @@ function Reveal({ children, className = "" }: { children: React.ReactNode; class
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const element = ref.current; if (!element) return;
-    const observer = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) { element.classList.add("is-visible"); observer.unobserve(element); } }, { threshold: 0.14 });
+    const observer = new IntersectionObserver(([entry]) => { if (entry?.isIntersecting) { element.classList.add("is-visible"); observer.unobserve(element); } }, { threshold: 0.14 });
     observer.observe(element); return () => observer.disconnect();
   }, []);
   return <div ref={ref} className={`reveal ${className}`}>{children}</div>;
@@ -117,10 +117,10 @@ function ContactForm() {
   };
   if (status === "success") return <div className="success-message" role="status"><span><Check /></span><h3>Message received.</h3><p>Thanks for reaching out. We&apos;ll be in touch soon.</p></div>;
   return <form onSubmit={submit} noValidate>
-    <div className="field-row"><label>Name<input name="name" autoComplete="name" placeholder="Your name" aria-invalid={!!errors.name} /></label><label>Business<input name="business" autoComplete="organization" placeholder="Company or brand" /></label></div>
-    {errors.name && <p className="field-error">{errors.name}</p>}
-    <label>Email<input name="email" type="email" autoComplete="email" placeholder="you@company.com" aria-invalid={!!errors.email} /></label>{errors.email && <p className="field-error">{errors.email}</p>}
-    <label>Project details<textarea name="details" rows={5} placeholder="Tell us what you're building, your goals and timeline." aria-invalid={!!errors.details} /></label>{errors.details && <p className="field-error">{errors.details}</p>}
+    <div className="field-row"><label>Name<input name="name" autoComplete="name" placeholder="Your name" aria-invalid={!!errors["name"]} /></label><label>Business<input name="business" autoComplete="organization" placeholder="Company or brand" /></label></div>
+    {errors["name"] && <p className="field-error">{errors["name"]}</p>}
+    <label>Email<input name="email" type="email" autoComplete="email" placeholder="you@company.com" aria-invalid={!!errors["email"]} /></label>{errors["email"] && <p className="field-error">{errors["email"]}</p>}
+    <label>Project details<textarea name="details" rows={5} placeholder="Tell us what you're building, your goals and timeline." aria-invalid={!!errors["details"]} /></label>{errors["details"] && <p className="field-error">{errors["details"]}</p>}
     <Button type="submit" className="submit-button" disabled={status === "loading"}>{status === "loading" ? <span className="loader" /> : <>START A CONVERSATION <ArrowRight /></>}</Button>
   </form>;
 }
