@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import dexLogo from "@/assets/dex-logo.png.asset.json";
 import happyTeeth from "@/assets/happy-teeth-preview.png.asset.json";
 import ultramed from "@/assets/ultramed-preview.png.asset.json";
+import socio1 from "@/assets/socio-1.png.asset.json";
+import socio2 from "@/assets/socio-2.jfif.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -41,6 +43,11 @@ const process = [
   ["DESIGN", "Criamos a direção visual e a experiência do usuário."],
   ["DESENVOLVIMENTO", "Transformamos o conceito em uma experiência digital responsiva."],
   ["LANÇAMENTO", "Refinamos, testamos e preparamos tudo para o lançamento."],
+];
+
+const partners = [
+  { id: "01", image: socio1.url, position: "center 28%" },
+  { id: "02", image: socio2.url, position: "center 22%" },
 ];
 
 const formSchema = z.object({
@@ -141,7 +148,7 @@ function Index() {
 
       <section id="about" className="about section-pad"><Reveal><span className="section-label">03 / ESTÚDIO</span><div className="about-grid"><h2>SOBRE A DEX</h2><div><p className="lead">A DEX Web Development é um estúdio digital focado em criar sites modernos, responsivos e com propósito para empresas prontas para melhorar sua presença online.</p><p>Unimos design, desenvolvimento e experiência do usuário para criar experiências digitais claras, modernas e construídas em torno de cada negócio.</p></div></div></Reveal></section>
 
-      <section className="team section-pad"><Reveal><span className="section-label">04 / EQUIPE</span><h2>QUEM ESTÁ POR<br />TRÁS DA DEX</h2></Reveal><div className="team-grid">{[1,2].map((n) => <Reveal key={n}><article className="person-card"><div className="avatar-placeholder" aria-label="Espaço reservado para foto do sócio"><div className="avatar-head" /><div className="avatar-body" /><span>FOTO / 0{n}</span></div><div className="person-info"><h3>[Nome do sócio]</h3><p>Co-Fundador / Desenvolvedor Web</p></div></article></Reveal>)}</div></section>
+      <section className="team section-pad"><Reveal><span className="section-label">04 / EQUIPE</span><h2>QUEM ESTÁ POR<br />TRÁS DA DEX</h2></Reveal><div className="team-grid">{partners.map((partner) => <Reveal key={partner.id}><article className="person-card"><div className="partner-photo"><img src={partner.image} alt={`Sócio ${partner.id} da DEX Web Development`} style={{ objectPosition: partner.position }} /><span>SÓCIO / {partner.id}</span></div><div className="person-info"><h3>Sócio {partner.id}</h3><p>Co-Fundador / Desenvolvedor Web</p></div></article></Reveal>)}</div></section>
 
       <section className="services section-pad"><Reveal className="section-heading"><div><span className="section-label">05 / ESPECIALIDADES</span><h2>O QUE FAZEMOS</h2></div><p>Estratégia, design e desenvolvimento — construídos em um processo integrado.</p></Reveal><div className="service-list">{services.map((service, i) => <Reveal key={service}><div className="service-item"><span>{String(i + 1).padStart(2,"0")}</span><h3>{service}</h3><ArrowRight /></div></Reveal>)}</div></section>
 
@@ -149,10 +156,10 @@ function Index() {
 
       <section className="statement"><Reveal><p>BOM DESIGN ATRAI <span>ATENÇÃO.</span><br />GRANDES EXPERIÊNCIAS A MANTÊM.</p></Reveal></section>
 
-      <section id="contact" className="contact section-pad"><Reveal><span className="section-label">07 / CONTATO</span><h2>VAMOS CONSTRUIR<br /><span>ALGO JUNTOS.</span></h2><p className="contact-intro">Tem um projeto em mente? Conte-nos o que você está construindo.</p></Reveal><div className="contact-grid"><Reveal><ContactForm /></Reveal><Reveal><aside className="contact-details"><span className="details-title">CONTATO DIRETO</span><a href="mailto:hello@dexwebdevelopment.com"><Mail /> <span><small>E-MAIL</small>hello@dexwebdevelopment.com</span></a><a href="https://wa.me/000000000000" target="_blank" rel="noopener noreferrer"><MessageCircle /> <span><small>WHATSAPP</small>Configurar número</span></a><a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"><Instagram /> <span><small>INSTAGRAM</small>@dexwebdevelopment</span></a><p>Os dados de contato estão prontos para receber suas contas definitivas.</p></aside></Reveal></div></section>
+      <section id="contact" className="contact section-pad"><Reveal><span className="section-label">07 / CONTATO</span><h2>VAMOS CONSTRUIR<br /><span>ALGO JUNTOS.</span></h2><p className="contact-intro">Tem um projeto em mente? Conte-nos o que você está construindo.</p></Reveal><div className="contact-grid"><Reveal><ContactForm /></Reveal><Reveal><aside className="contact-details"><span className="details-title">CONTATO DIRETO</span><a href="mailto:dex.webdevoficial@gmail.com"><Mail /> <span><small>E-MAIL</small>dex.webdevoficial@gmail.com</span></a><a href="https://wa.me/5517988244625" target="_blank" rel="noopener noreferrer"><MessageCircle /> <span><small>WHATSAPP</small>(17) 98824-4625</span></a><a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"><Instagram /> <span><small>INSTAGRAM</small>@dexwebdevelopment</span></a></aside></Reveal></div></section>
 
       <section className="final-cta"><div className="final-glow" /><Reveal><h2>VAMOS CRIAR<br />O <span>PRÓXIMO PASSO.</span></h2><a className="primary-link" href="#contact">INICIAR PROJETO <ArrowRight /></a></Reveal></section>
     </main>
-    <footer><a href="#top" className="footer-brand"><img src={dexLogo.url} alt="DEX Web Development" /><span>Experiências digitais construídas com propósito.</span></a><nav aria-label="Navegação do rodapé">{navItems.map(item => <a key={item.label} href={item.href}>{item.label}</a>)}</nav><div className="footer-social"><a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a><a href="https://wa.me/000000000000" target="_blank" rel="noopener noreferrer">WHATSAPP</a><a href="mailto:hello@dexwebdevelopment.com">E-MAIL</a></div><p>© 2026 DEX Web Development. Todos os direitos reservados.</p></footer>
+    <footer><a href="#top" className="footer-brand"><img src={dexLogo.url} alt="DEX Web Development" /><span>Experiências digitais construídas com propósito.</span></a><nav aria-label="Navegação do rodapé">{navItems.map(item => <a key={item.label} href={item.href}>{item.label}</a>)}</nav><div className="footer-social"><a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a><a href="https://wa.me/5517988244625" target="_blank" rel="noopener noreferrer">WHATSAPP</a><a href="mailto:dex.webdevoficial@gmail.com">E-MAIL</a></div><p>© 2026 DEX Web Development. Todos os direitos reservados.</p></footer>
   </div>;
 }
