@@ -46,8 +46,8 @@ const process = [
 ];
 
 const partners = [
-  { id: "01", image: socio1.url, position: "center 28%" },
-  { id: "02", image: socio2.url, position: "center 22%" },
+  { id: "01", image: socio1.url, imageClass: "partner-one" },
+  { id: "02", image: socio2.url, imageClass: "partner-two" },
 ];
 
 const formSchema = z.object({
@@ -148,7 +148,7 @@ function Index() {
 
       <section id="about" className="about section-pad"><Reveal><span className="section-label">03 / ESTÚDIO</span><div className="about-grid"><h2>SOBRE A DEX</h2><div><p className="lead">A DEX Web Development é um estúdio digital focado em criar sites modernos, responsivos e com propósito para empresas prontas para melhorar sua presença online.</p><p>Unimos design, desenvolvimento e experiência do usuário para criar experiências digitais claras, modernas e construídas em torno de cada negócio.</p></div></div></Reveal></section>
 
-      <section className="team section-pad"><Reveal><span className="section-label">04 / EQUIPE</span><h2>QUEM ESTÁ POR<br />TRÁS DA DEX</h2></Reveal><div className="team-grid">{partners.map((partner) => <Reveal key={partner.id}><article className="person-card"><div className="partner-photo"><img src={partner.image} alt={`Sócio ${partner.id} da DEX Web Development`} style={{ objectPosition: partner.position }} /><span>SÓCIO / {partner.id}</span></div><div className="person-info"><h3>Sócio {partner.id}</h3><p>Co-Fundador / Desenvolvedor Web</p></div></article></Reveal>)}</div></section>
+      <section className="team section-pad"><Reveal><span className="section-label">04 / EQUIPE</span><h2>QUEM ESTÁ POR<br />TRÁS DA DEX</h2></Reveal><div className="team-grid">{partners.map((partner) => <Reveal key={partner.id}><article className="person-card"><div className="partner-photo"><img className={partner.imageClass} src={partner.image} alt={`Sócio ${partner.id} da DEX Web Development`} /><span>SÓCIO / {partner.id}</span></div><div className="person-info"><h3>Sócio {partner.id}</h3><p>Co-Fundador / Desenvolvedor Web</p></div></article></Reveal>)}</div></section>
 
       <section className="services section-pad"><Reveal className="section-heading"><div><span className="section-label">05 / ESPECIALIDADES</span><h2>O QUE FAZEMOS</h2></div><p>Estratégia, design e desenvolvimento — construídos em um processo integrado.</p></Reveal><div className="service-list">{services.map((service, i) => <Reveal key={service}><div className="service-item"><span>{String(i + 1).padStart(2,"0")}</span><h3>{service}</h3><ArrowRight /></div></Reveal>)}</div></section>
 
