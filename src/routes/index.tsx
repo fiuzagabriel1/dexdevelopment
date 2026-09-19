@@ -3,11 +3,11 @@ import { ArrowDown, ArrowRight, Check, ExternalLink, Instagram, Mail, Menu, Mess
 import { useEffect, useRef, useState, type FormEvent, type MouseEvent as ReactMouseEvent } from "react";
 import { z } from "zod";
 
-const dexLogo = { url: "/images/logodex.png" };
-const happyTeeth = { url: "/images/amostrastel1.JPG" };
-const ultramed = { url: "/images/amostrastel2.jpg" };
-const socio1 = { url: "/images/socio1.jfif" };
-const socio2 = { url: "/images/socio2.png" };
+import dexLogo from "@/assets/dex-logo.png.asset.json";
+import happyTeeth from "@/assets/happy-teeth-preview.png.asset.json";
+import ultramed from "@/assets/ultramed-preview.png.asset.json";
+import socio1 from "@/assets/socio-1.png.asset.json";
+import socio2 from "@/assets/socio-2.jfif.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
